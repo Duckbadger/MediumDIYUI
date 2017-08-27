@@ -1,0 +1,6 @@
+framework module Pods_MediumApplause {
+  umbrella header "Pods-MediumApplause-umbrella.h"
+
+  export *
+  module * { export * }
+}

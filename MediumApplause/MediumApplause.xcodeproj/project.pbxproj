@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B99E36FDA468747B481728F /* Pods_MediumApplause.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586665D9096AFAC7E9CB6D14 /* Pods_MediumApplause.framework */; };
 		BEAAF1DA1F53545800F1E0B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAAF1D91F53545800F1E0B9 /* AppDelegate.swift */; };
 		BEAAF1DC1F53545800F1E0B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAAF1DB1F53545800F1E0B9 /* ViewController.swift */; };
 		BEAAF1DF1F53545800F1E0B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEAAF1DD1F53545800F1E0B9 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16090E35127D5035FF6C5084 /* Pods-MediumApplause.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediumApplause.release.xcconfig"; path = "Pods/Target Support Files/Pods-MediumApplause/Pods-MediumApplause.release.xcconfig"; sourceTree = "<group>"; };
+		586665D9096AFAC7E9CB6D14 /* Pods_MediumApplause.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MediumApplause.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2FCA90B6E5ED87FAFB43F2F /* Pods-MediumApplause.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediumApplause.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MediumApplause/Pods-MediumApplause.debug.xcconfig"; sourceTree = "<group>"; };
 		BEAAF1D61F53545800F1E0B9 /* MediumApplause.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediumApplause.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEAAF1D91F53545800F1E0B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEAAF1DB1F53545800F1E0B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B99E36FDA468747B481728F /* Pods_MediumApplause.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2831555268624C0308F0753 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				586665D9096AFAC7E9CB6D14 /* Pods_MediumApplause.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BEAAF1CD1F53545800F1E0B9 = {
 			isa = PBXGroup;
 			children = (
 				BEAAF1D81F53545800F1E0B9 /* MediumApplause */,
 				BEAAF1D71F53545800F1E0B9 /* Products */,
+				DCE975B8A7A7D931595D2718 /* Pods */,
+				A2831555268624C0308F0753 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = MediumApplause;
 			sourceTree = "<group>";
 		};
+		DCE975B8A7A7D931595D2718 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2FCA90B6E5ED87FAFB43F2F /* Pods-MediumApplause.debug.xcconfig */,
+				16090E35127D5035FF6C5084 /* Pods-MediumApplause.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEAAF1E81F53545800F1E0B9 /* Build configuration list for PBXNativeTarget "MediumApplause" */;
 			buildPhases = (
+				43C63FBF22CED2EDBB56FF5D /* [CP] Check Pods Manifest.lock */,
 				BEAAF1D21F53545800F1E0B9 /* Sources */,
 				BEAAF1D31F53545800F1E0B9 /* Frameworks */,
 				BEAAF1D41F53545800F1E0B9 /* Resources */,
+				768000FE4E9D975F052A1117 /* [CP] Embed Pods Frameworks */,
+				E7AF53A236403018B2993110 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43C63FBF22CED2EDBB56FF5D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		768000FE4E9D975F052A1117 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MediumApplause/Pods-MediumApplause-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7AF53A236403018B2993110 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MediumApplause/Pods-MediumApplause-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BEAAF1D21F53545800F1E0B9 /* Sources */ = {
@@ -258,6 +333,7 @@
 		};
 		BEAAF1E91F53545800F1E0B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2FCA90B6E5ED87FAFB43F2F /* Pods-MediumApplause.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MediumApplause/Info.plist;
@@ -270,6 +346,7 @@
 		};
 		BEAAF1EA1F53545800F1E0B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16090E35127D5035FF6C5084 /* Pods-MediumApplause.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MediumApplause/Info.plist;
