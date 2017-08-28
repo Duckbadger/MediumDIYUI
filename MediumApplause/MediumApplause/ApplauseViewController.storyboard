@@ -21,6 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKp-D7-MoJ">
+                                <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FqS-Xs-KpP"/>
+                                    <constraint firstAttribute="width" constant="50" id="oNs-RL-6i5"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydA-WZ-Tv2">
                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                 <color key="backgroundColor" red="0.74509803919999995" green="0.56078431370000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,6 +48,8 @@
                         <constraints>
                             <constraint firstItem="ydA-WZ-Tv2" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="0o9-KX-cdH"/>
                             <constraint firstItem="ydA-WZ-Tv2" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="7Ae-oh-uWx"/>
+                            <constraint firstItem="BKp-D7-MoJ" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="LgT-9P-RLC"/>
+                            <constraint firstItem="BKp-D7-MoJ" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="Lxh-13-xXz"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
