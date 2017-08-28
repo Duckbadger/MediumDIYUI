@@ -15,6 +15,10 @@ final class ApplauseViewController: UIViewController {
 	
 	fileprivate let scheduler = ActionScheduler()
 	fileprivate var timer: Timer? = nil
+	fileprivate let timerDelta = 0.5
+	fileprivate lazy var buttonInitialFrame: CGRect = {
+		return self.applauseButton.frame
+	}()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,11 +35,37 @@ final class ApplauseViewController: UIViewController {
 	
 	fileprivate func scheduleIncrement() {
 		animateIncrement()
-		timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(animateIncrement), userInfo: nil, repeats: true)
+		timer = Timer.scheduledTimer(timeInterval: timerDelta, target: self, selector: #selector(animateIncrement), userInfo: nil, repeats: true)
 	}
 	
 	@objc fileprivate func animateIncrement() {
+		print("animate")
 		
+		// Animate Button bounce and stroke
+		
+		let buttonDuration = timerDelta * 0.5
+		
+		let fromRect = buttonInitialFrame
+		let frameDelta = CGFloat(-4)
+		let toRect = buttonInitialFrame.insetBy(dx: frameDelta, dy: frameDelta)
+		let buttonAction = InterpolationAction(from: fromRect,
+		                                       to: toRect,
+		                                       duration: buttonDuration,
+		                                       easing: .sineInOut) { [unowned self] in
+												self.applauseButton.layer.frame = $0
+		}
+		let fromWidth = fromRect.width
+		let toWidth = toRect.width
+		let cornerAction = InterpolationAction(from: fromWidth * 0.5,
+		                                       to: toWidth * 0.5,
+		                                       duration: buttonDuration,
+		                                       easing: .sineInOut) { [unowned self] in
+												self.applauseButton.layer.cornerRadius = $0
+		}
+		
+		let buttonGroup = ActionGroup(actions: [buttonAction, cornerAction])
+		
+		scheduler.run(action: buttonGroup.yoyo())
 	}
 	
 	// MARK: Actions

@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkW-qV-QHx">
-                                <rect key="frame" x="259" y="547" width="100" height="100"/>
+                                <rect key="frame" x="289" y="577" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="BvM-F9-m8B"/>
-                                    <constraint firstAttribute="width" constant="100" id="Syx-cn-3eF"/>
+                                    <constraint firstAttribute="height" constant="70" id="BvM-F9-m8B"/>
+                                    <constraint firstAttribute="width" constant="70" id="Syx-cn-3eF"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="pdR-3C-Nhm" kind="embed" id="jUG-AY-1cD"/>
