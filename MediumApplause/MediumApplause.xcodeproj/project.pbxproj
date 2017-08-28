@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		2B99E36FDA468747B481728F /* Pods_MediumApplause.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586665D9096AFAC7E9CB6D14 /* Pods_MediumApplause.framework */; };
+		BE5192D51F54632300203A64 /* UIView+NibLoadingConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5192D41F54632300203A64 /* UIView+NibLoadingConfigurableView.swift */; };
 		BEAAF1DA1F53545800F1E0B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAAF1D91F53545800F1E0B9 /* AppDelegate.swift */; };
 		BEAAF1DC1F53545800F1E0B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAAF1DB1F53545800F1E0B9 /* ViewController.swift */; };
 		BEAAF1DF1F53545800F1E0B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEAAF1DD1F53545800F1E0B9 /* Main.storyboard */; };
 		BEAAF1E11F53545800F1E0B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEAAF1E01F53545800F1E0B9 /* Assets.xcassets */; };
 		BEAAF1E41F53545800F1E0B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEAAF1E21F53545800F1E0B9 /* LaunchScreen.storyboard */; };
+		BEF99E761F546EC500E75488 /* ApplauseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF99E751F546EC500E75488 /* ApplauseViewController.storyboard */; };
+		BEF99E781F546F2600E75488 /* ApplauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF99E771F546F2600E75488 /* ApplauseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		16090E35127D5035FF6C5084 /* Pods-MediumApplause.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediumApplause.release.xcconfig"; path = "Pods/Target Support Files/Pods-MediumApplause/Pods-MediumApplause.release.xcconfig"; sourceTree = "<group>"; };
 		586665D9096AFAC7E9CB6D14 /* Pods_MediumApplause.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MediumApplause.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FCA90B6E5ED87FAFB43F2F /* Pods-MediumApplause.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediumApplause.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MediumApplause/Pods-MediumApplause.debug.xcconfig"; sourceTree = "<group>"; };
+		BE5192D41F54632300203A64 /* UIView+NibLoadingConfigurableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadingConfigurableView.swift"; sourceTree = "<group>"; };
 		BEAAF1D61F53545800F1E0B9 /* MediumApplause.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediumApplause.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEAAF1D91F53545800F1E0B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEAAF1DB1F53545800F1E0B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		BEAAF1E01F53545800F1E0B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEAAF1E31F53545800F1E0B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEAAF1E51F53545800F1E0B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEF99E751F546EC500E75488 /* ApplauseViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ApplauseViewController.storyboard; sourceTree = "<group>"; };
+		BEF99E771F546F2600E75488 /* ApplauseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplauseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,9 @@
 				BEAAF1E01F53545800F1E0B9 /* Assets.xcassets */,
 				BEAAF1E21F53545800F1E0B9 /* LaunchScreen.storyboard */,
 				BEAAF1E51F53545800F1E0B9 /* Info.plist */,
+				BE5192D41F54632300203A64 /* UIView+NibLoadingConfigurableView.swift */,
+				BEF99E751F546EC500E75488 /* ApplauseViewController.storyboard */,
+				BEF99E771F546F2600E75488 /* ApplauseViewController.swift */,
 			);
 			path = MediumApplause;
 			sourceTree = "<group>";
@@ -152,6 +161,7 @@
 			files = (
 				BEAAF1E41F53545800F1E0B9 /* LaunchScreen.storyboard in Resources */,
 				BEAAF1E11F53545800F1E0B9 /* Assets.xcassets in Resources */,
+				BEF99E761F546EC500E75488 /* ApplauseViewController.storyboard in Resources */,
 				BEAAF1DF1F53545800F1E0B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +222,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEAAF1DC1F53545800F1E0B9 /* ViewController.swift in Sources */,
+				BEF99E781F546F2600E75488 /* ApplauseViewController.swift in Sources */,
+				BE5192D51F54632300203A64 /* UIView+NibLoadingConfigurableView.swift in Sources */,
 				BEAAF1DA1F53545800F1E0B9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +388,7 @@
 				BEAAF1EA1F53545800F1E0B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

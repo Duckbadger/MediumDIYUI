@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7NG-7C-sLW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Applause View Controller-->
+        <scene sceneID="l7j-xT-Dx9">
+            <objects>
+                <viewController id="7NG-7C-sLW" customClass="ApplauseViewController" customModule="MediumApplause" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s0t-se-2zX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Agl-U2-t6o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Xj-kd-jFZ">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydA-WZ-Tv2">
+                                <rect key="frame" x="2.5" y="2.5" width="95" height="95"/>
+                                <color key="backgroundColor" red="0.74509803919999995" green="0.56078431370000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="Cwp-fO-ksZ"/>
+                                    <constraint firstAttribute="height" constant="95" id="Z1k-67-YcU"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="applauseButtonTouchDown:" destination="7NG-7C-sLW" eventType="touchDown" id="9i0-wh-Zm7"/>
+                                    <action selector="applauseButtonTouchUp:" destination="7NG-7C-sLW" eventType="touchUpOutside" id="e5D-2z-5mf"/>
+                                    <action selector="applauseButtonTouchUp:" destination="7NG-7C-sLW" eventType="touchUpInside" id="tJq-dn-skt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ydA-WZ-Tv2" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="0o9-KX-cdH"/>
+                            <constraint firstItem="ydA-WZ-Tv2" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="7Ae-oh-uWx"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="100" height="100"/>
+                    <connections>
+                        <outlet property="applauseButton" destination="ydA-WZ-Tv2" id="mez-CV-oay"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZv-K5-Xsx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-154" y="48"/>
+        </scene>
+    </scenes>
+</document>
