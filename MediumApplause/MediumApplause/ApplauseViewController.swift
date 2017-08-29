@@ -11,61 +11,176 @@ import TweenKit
 
 final class ApplauseViewController: UIViewController {
 	
+	// MARK: - Properties
+	// MARK: Outlets
 	@IBOutlet var applauseButton: UIButton!
+	@IBOutlet var applauseCounterView: UIView!
+	@IBOutlet var applauseCounterLabel: UILabel!
 	
+	// MARK: Private
+	// Animation
 	fileprivate let scheduler = ActionScheduler()
 	fileprivate var timer: Timer? = nil
-	fileprivate let timerDelta = 0.5
+	fileprivate let timerDelta = 0.6
+	fileprivate var animationCount = 0
+	
+	// Frames
 	fileprivate lazy var buttonInitialFrame: CGRect = {
 		return self.applauseButton.frame
 	}()
+	fileprivate lazy var applauseCounterViewInitialFrame: CGRect = {
+		return self.applauseCounterView.frame
+	}()
+	fileprivate lazy var applauseCounterViewVisibleFrame: CGRect = {
+		return self.applauseCounterViewInitialFrame.offsetBy(dx: 0, dy: -100)
+	}()
+	
+	fileprivate var applauseAmount = 0
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupApplauseButton()
+		setupApplauseAmountContainer()
 	}
 	
-	// MARK: Private
+	// MARK: - Functions
+	// MARK: Applause
 	
 	fileprivate func setupApplauseButton() {
-		applauseButton.layer.cornerRadius = applauseButton.frame.width / 2
+		applauseButton.layer.cornerRadius = buttonInitialFrame.width / 2
 		applauseButton.layer.borderWidth = 2.0
 		applauseButton.layer.borderColor = UIColor.red.cgColor
 	}
 	
+	fileprivate func setupApplauseAmountContainer() {
+		applauseCounterView.layer.cornerRadius = applauseCounterViewInitialFrame.width / 2
+	}
+	
 	fileprivate func scheduleIncrement() {
+		animationCount = 0
 		animateIncrement()
 		timer = Timer.scheduledTimer(timeInterval: timerDelta, target: self, selector: #selector(animateIncrement), userInfo: nil, repeats: true)
+	}
+	
+	fileprivate func scheduleAnimationOut() {
+		
 	}
 	
 	@objc fileprivate func animateIncrement() {
 		print("animate")
 		
-		// Animate Button bounce and stroke
+		// Label
+		applauseAmount += 1
+		applauseCounterLabel.text = "+\(applauseAmount)"
 		
-		let buttonDuration = timerDelta * 0.5
+		// Animate Button bounce and stroke
+		let buttonGroup = applauseButtonAnimationActions
+		
+		// Animate applause amount view and increment
+		let counterActions = (applauseCounterView.layer.frame == applauseCounterViewInitialFrame) ? applauseCounterAnimationActionsInitial : applauseCounterAnimationActions
+		
+		let allActions = ActionGroup(actions: [buttonGroup, counterActions])
+		
+		scheduler.run(action: allActions)
+		animationCount += 1
+	}
+	
+	fileprivate var applauseButtonAnimationActions: FiniteTimeAction {
+		let animationDuration = timerDelta * 0.5
 		
 		let fromRect = buttonInitialFrame
-		let frameDelta = CGFloat(-4)
-		let toRect = buttonInitialFrame.insetBy(dx: frameDelta, dy: frameDelta)
+		let delta = CGFloat(-4)
+		let toRect = buttonInitialFrame.insetBy(dx: delta, dy: delta)
 		let buttonAction = InterpolationAction(from: fromRect,
 		                                       to: toRect,
-		                                       duration: buttonDuration,
+		                                       duration: animationDuration,
 		                                       easing: .sineInOut) { [unowned self] in
 												self.applauseButton.layer.frame = $0
 		}
+		
 		let fromWidth = fromRect.width
 		let toWidth = toRect.width
 		let cornerAction = InterpolationAction(from: fromWidth * 0.5,
 		                                       to: toWidth * 0.5,
-		                                       duration: buttonDuration,
+		                                       duration: animationDuration,
 		                                       easing: .sineInOut) { [unowned self] in
 												self.applauseButton.layer.cornerRadius = $0
 		}
 		
-		let buttonGroup = ActionGroup(actions: [buttonAction, cornerAction])
+		return ActionGroup(actions: [buttonAction, cornerAction]).yoyo()
+	}
+	
+	fileprivate var applauseCounterAnimationActionsInitial: FiniteTimeAction {
+		let animationDuration = timerDelta * 0.5
 		
-		scheduler.run(action: buttonGroup.yoyo())
+		// Container view
+		let fromRect = applauseCounterViewInitialFrame
+		let toRect = applauseCounterViewVisibleFrame
+		let viewAction = InterpolationAction(from: fromRect,
+		                                     to: toRect,
+		                                     duration: animationDuration,
+		                                     easing: .backOut) { [unowned self] in
+												self.applauseCounterView.layer.frame = $0
+		}
+		let labelAction = InterpolationAction(from: fromRect,
+		                                      to: toRect,
+		                                      duration: animationDuration,
+		                                      easing: .backOut) { [unowned self] in
+												self.applauseCounterLabel.layer.frame = $0
+		}
+		
+		return ActionGroup(actions: [viewAction, labelAction])
+	}
+	
+	fileprivate var applauseCounterAnimationActions: FiniteTimeAction {
+		let animationDuration = timerDelta * 0.5
+		
+		// Container view
+		let fromRect = applauseCounterViewVisibleFrame
+		let delta = CGFloat(-2)
+		let toRect = applauseCounterViewVisibleFrame.insetBy(dx: delta, dy: delta)
+		let viewAction = InterpolationAction(from: fromRect,
+		                                     to: toRect,
+		                                     duration: animationDuration,
+		                                     easing: .sineInOut) { [unowned self] in
+												self.applauseCounterView.layer.frame = $0
+		}
+		
+		let labelFromRect = applauseCounterViewVisibleFrame
+		let labelToRect = applauseCounterViewVisibleFrame
+		let labelAction = InterpolationAction(from: labelFromRect,
+		                                     to: labelToRect,
+		                                     duration: animationDuration,
+		                                     easing: .sineInOut) { [unowned self] in
+												self.applauseCounterLabel.layer.frame = $0
+		}
+		
+		
+		let fromWidth = fromRect.width
+		let toWidth = toRect.width
+		let cornerAction = InterpolationAction(from: fromWidth * 0.5,
+		                                       to: toWidth * 0.5,
+		                                       duration: animationDuration,
+		                                       easing: .sineInOut) { [unowned self] in
+												self.applauseCounterView.layer.cornerRadius = $0
+		}
+		
+		return ActionGroup(actions: [viewAction, labelAction, cornerAction]).yoyo()
+	}
+	
+	fileprivate var applauseCounterLabelAnimationActions: FiniteTimeAction {
+		applauseAmount += 1
+		
+		let fromString = applauseCounterLabel.text!
+		let toString = "\(applauseAmount)"
+		let labelAction = InterpolationAction(from: fromString,
+		                                       to: toString,
+		                                       duration: 0.1,
+		                                       easing: .sineInOut) { [unowned self] in
+												self.applauseCounterLabel.text = $0
+		}
+		
+		return labelAction
 	}
 	
 	// MARK: Actions
@@ -76,5 +191,6 @@ final class ApplauseViewController: UIViewController {
 
 	@IBAction func applauseButtonTouchUp(_ sender: Any) {
 		timer?.invalidate()
+		scheduleAnimationOut()
 	}
 }
