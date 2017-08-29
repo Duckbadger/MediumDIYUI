@@ -15,6 +15,7 @@
 		BEAAF1E11F53545800F1E0B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEAAF1E01F53545800F1E0B9 /* Assets.xcassets */; };
 		BEAAF1E41F53545800F1E0B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEAAF1E21F53545800F1E0B9 /* LaunchScreen.storyboard */; };
 		BEEA01C61F5610EA002BEA76 /* String+Tweenable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEA01C51F5610EA002BEA76 /* String+Tweenable.swift */; };
+		BEEA01C81F562923002BEA76 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEA01C71F562923002BEA76 /* TriangleView.swift */; };
 		BEF99E761F546EC500E75488 /* ApplauseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF99E751F546EC500E75488 /* ApplauseViewController.storyboard */; };
 		BEF99E781F546F2600E75488 /* ApplauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF99E771F546F2600E75488 /* ApplauseViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		BEAAF1E31F53545800F1E0B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEAAF1E51F53545800F1E0B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEEA01C51F5610EA002BEA76 /* String+Tweenable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Tweenable.swift"; sourceTree = "<group>"; };
+		BEEA01C71F562923002BEA76 /* TriangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		BEF99E751F546EC500E75488 /* ApplauseViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ApplauseViewController.storyboard; sourceTree = "<group>"; };
 		BEF99E771F546F2600E75488 /* ApplauseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplauseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 				BEF99E751F546EC500E75488 /* ApplauseViewController.storyboard */,
 				BEF99E771F546F2600E75488 /* ApplauseViewController.swift */,
 				BEEA01C51F5610EA002BEA76 /* String+Tweenable.swift */,
+				BEEA01C71F562923002BEA76 /* TriangleView.swift */,
 			);
 			path = MediumApplause;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				BEEA01C61F5610EA002BEA76 /* String+Tweenable.swift in Sources */,
 				BEF99E781F546F2600E75488 /* ApplauseViewController.swift in Sources */,
 				BE5192D51F54632300203A64 /* UIView+NibLoadingConfigurableView.swift in Sources */,
+				BEEA01C81F562923002BEA76 /* TriangleView.swift in Sources */,
 				BEAAF1DA1F53545800F1E0B9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

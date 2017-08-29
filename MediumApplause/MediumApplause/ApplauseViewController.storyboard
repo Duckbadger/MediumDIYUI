@@ -39,6 +39,46 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0Q-Hc-RXU" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
+                                <rect key="frame" x="30" y="30" width="10" height="10"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="Jf5-ap-Oto"/>
+                                    <constraint firstAttribute="height" constant="10" id="Lfw-4U-JdX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGk-Ku-mkN" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
+                                <rect key="frame" x="30" y="30" width="10" height="10"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="52r-Sa-XLg"/>
+                                    <constraint firstAttribute="width" constant="10" id="RAS-eC-gWV"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3j-7w-Cj4" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
+                                <rect key="frame" x="30" y="30" width="10" height="10"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="jlR-ro-2nS"/>
+                                    <constraint firstAttribute="width" constant="10" id="stL-ZY-u9i"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxc-La-iVn" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
+                                <rect key="frame" x="30" y="30" width="10" height="10"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="6XX-HG-7Gu"/>
+                                    <constraint firstAttribute="height" constant="10" id="w1O-wF-LXE"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BS1-wE-jwI" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
+                                <rect key="frame" x="30" y="30" width="10" height="10"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="ccJ-V3-iSE"/>
+                                    <constraint firstAttribute="width" constant="10" id="vEP-gv-BHO"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydA-WZ-Tv2">
                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                 <color key="backgroundColor" red="0.74509803919999995" green="0.56078431370000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,11 +97,21 @@
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ydA-WZ-Tv2" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="0o9-KX-cdH"/>
+                            <constraint firstItem="r0Q-Hc-RXU" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="4H7-PS-Bcj"/>
+                            <constraint firstItem="yxc-La-iVn" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="5tD-EN-j6G"/>
                             <constraint firstItem="ydA-WZ-Tv2" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="7Ae-oh-uWx"/>
                             <constraint firstItem="BKp-D7-MoJ" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="LgT-9P-RLC"/>
                             <constraint firstItem="BKp-D7-MoJ" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="Lxh-13-xXz"/>
+                            <constraint firstItem="l3j-7w-Cj4" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="RHM-Xg-gMz"/>
+                            <constraint firstItem="YGk-Ku-mkN" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="bTO-RZ-nnZ"/>
+                            <constraint firstItem="r0Q-Hc-RXU" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="bbT-9b-fuC"/>
                             <constraint firstItem="MjY-pG-NGX" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="bfX-Bx-ajE"/>
+                            <constraint firstItem="BS1-wE-jwI" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="dg2-OL-WlW"/>
+                            <constraint firstItem="BS1-wE-jwI" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="kUE-cw-XLQ"/>
                             <constraint firstItem="MjY-pG-NGX" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="lfN-X3-pBq"/>
+                            <constraint firstItem="l3j-7w-Cj4" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="mj6-dE-W9b"/>
+                            <constraint firstItem="yxc-La-iVn" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="wDa-JC-O3c"/>
+                            <constraint firstItem="YGk-Ku-mkN" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="yWD-1o-X5L"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -73,6 +123,11 @@
                         <outlet property="applauseButton" destination="ydA-WZ-Tv2" id="mez-CV-oay"/>
                         <outlet property="applauseCounterLabel" destination="MjY-pG-NGX" id="hYI-aj-bzF"/>
                         <outlet property="applauseCounterView" destination="BKp-D7-MoJ" id="Y6r-aX-4NR"/>
+                        <outletCollection property="triangleViews" destination="r0Q-Hc-RXU" collectionClass="NSMutableArray" id="iYK-Wf-5ot"/>
+                        <outletCollection property="triangleViews" destination="YGk-Ku-mkN" collectionClass="NSMutableArray" id="F4F-S6-9Qf"/>
+                        <outletCollection property="triangleViews" destination="l3j-7w-Cj4" collectionClass="NSMutableArray" id="kSf-23-P88"/>
+                        <outletCollection property="triangleViews" destination="yxc-La-iVn" collectionClass="NSMutableArray" id="9Gg-ia-CU3"/>
+                        <outletCollection property="triangleViews" destination="BS1-wE-jwI" collectionClass="NSMutableArray" id="rfi-D5-A6I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZv-K5-Xsx" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,6 +17,8 @@ final class ApplauseViewController: UIViewController {
 	@IBOutlet var applauseCounterView: UIView!
 	@IBOutlet var applauseCounterLabel: UILabel!
 	
+	@IBOutlet var triangleViews: [UIView]!
+	
 	// MARK: Private
 	// Animation
 	fileprivate let scheduler = ActionScheduler()
@@ -79,7 +81,9 @@ final class ApplauseViewController: UIViewController {
 		// Animate applause amount view and increment
 		let counterActions = (applauseCounterView.layer.frame == applauseCounterViewInitialFrame) ? applauseCounterAnimationActionsInitial : applauseCounterAnimationActions
 		
-		let allActions = ActionGroup(actions: [buttonGroup, counterActions])
+		let sparkleAnimations = sparklesAnimationActions
+		
+		let allActions = ActionGroup(actions: [buttonGroup, counterActions, sparkleAnimations])
 		
 		scheduler.run(action: allActions)
 		animationCount += 1
@@ -181,6 +185,37 @@ final class ApplauseViewController: UIViewController {
 		}
 		
 		return labelAction
+	}
+	
+	fileprivate var sparklesAnimationActions: FiniteTimeAction {
+		let animationDuration = timerDelta * 0.4
+		
+		let angleDelta = 360 / 5
+		let startAngle = Int(arc4random()) % angleDelta
+		let distance: Double = 25
+		
+		let origin = CGPoint(x: applauseCounterViewVisibleFrame.midX, y: applauseCounterViewVisibleFrame.midY)
+		let initialDistanceFromOrigin = (Double(applauseCounterViewVisibleFrame.size.width) / 2) + 5
+		let endDistanceFromOrigin = initialDistanceFromOrigin + distance
+		
+		
+		var triangleActions: [FiniteTimeAction] = []
+		for (index, triangle) in triangleViews.enumerated() {
+			let angle = Double(startAngle + (angleDelta * index))
+			let startPoint = CGPoint(x: Double(origin.x) + initialDistanceFromOrigin * cos(angle / 180.0 * Double.pi),
+			                         y: Double(origin.y) + initialDistanceFromOrigin * sin(angle / 180.0 * Double.pi))
+			let endPoint = CGPoint(x: Double(origin.x) + endDistanceFromOrigin * cos(angle / 180.0 * Double.pi),
+			                       y: Double(origin.y) + endDistanceFromOrigin * sin(angle / 180.0 * Double.pi))
+			let action = InterpolationAction(from: startPoint,
+			                                 to: endPoint,
+			                                 duration: animationDuration,
+			                                 easing: .sineOut) {
+												triangle.layer.position = $0
+			}
+			triangleActions.append(action)
+		}
+		
+		return ActionGroup(actions: triangleActions)
 	}
 	
 	// MARK: Actions
