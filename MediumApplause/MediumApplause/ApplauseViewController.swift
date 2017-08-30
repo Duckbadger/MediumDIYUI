@@ -21,6 +21,9 @@ final class ApplauseViewController: UIViewController {
 	@IBOutlet var circleViews: [CircleView]!
 	
 	// MARK: Private
+	// UI
+	fileprivate let buttonColor = UIColor(red: 0.31, green: 0.46, blue: 0.46, alpha: 1.0)
+	
 	// Animation
 	fileprivate let scheduler = ActionScheduler()
 	fileprivate var timer: Timer? = nil
@@ -55,8 +58,8 @@ final class ApplauseViewController: UIViewController {
 	
 	fileprivate func setupApplauseButton() {
 		applauseButton.layer.cornerRadius = buttonInitialFrame.width / 2
-		applauseButton.layer.borderWidth = 2.0
-		applauseButton.layer.borderColor = UIColor.red.cgColor
+		applauseButton.layer.borderWidth = 1.0
+		applauseButton.layer.borderColor = buttonColor.cgColor
 	}
 	
 	fileprivate func setupApplauseAmountContainer() {
@@ -72,7 +75,7 @@ final class ApplauseViewController: UIViewController {
 	
 	fileprivate func scheduleAnimationOut() {
 		timer?.invalidate()
-		timer = Timer.scheduledTimer(timeInterval: timerDelta, target: self, selector: #selector(animateOut), userInfo: nil, repeats: false)
+		timer = Timer.scheduledTimer(timeInterval: 0.9, target: self, selector: #selector(animateOut), userInfo: nil, repeats: false)
 	}
 	
 	@objc fileprivate func animateIncrement() {
@@ -96,6 +99,7 @@ final class ApplauseViewController: UIViewController {
 	}
 	
 	@objc fileprivate func animateOut() {
+		updateButtonImage()
 		let animateLeavingAction = applauseCounterAnimationActionsLeaving
 		scheduler.run(action: animateLeavingAction)
 	}
@@ -339,6 +343,14 @@ final class ApplauseViewController: UIViewController {
 		}
 		
 		return sparkleActions
+	}
+	
+	fileprivate func updateButtonImage() {
+		if applauseAmount > 0 {
+			applauseButton.setImage(#imageLiteral(resourceName: "full"), for: .normal)
+		} else {
+			applauseButton.setImage(#imageLiteral(resourceName: "empty"), for: .normal)
+		}
 	}
 	
 	// MARK: Actions

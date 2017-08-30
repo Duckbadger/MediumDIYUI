@@ -23,7 +23,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKp-D7-MoJ" userLabel="ApplauseCounterView">
                                 <rect key="frame" x="10" y="10" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.73918071549999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FqS-Xs-KpP"/>
                                     <constraint firstAttribute="width" constant="50" id="oNs-RL-6i5"/>
@@ -36,7 +36,7 @@
                                     <constraint firstAttribute="height" constant="50" id="hIA-Mc-SeB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0Q-Hc-RXU" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
@@ -119,14 +119,15 @@
                                     <constraint firstAttribute="height" constant="4" id="q2g-v9-low"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydA-WZ-Tv2">
-                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                <color key="backgroundColor" red="0.74509803919999995" green="0.56078431370000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydA-WZ-Tv2">
+                                <rect key="frame" x="0.5" y="0.5" width="70" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="Cwp-fO-ksZ"/>
                                     <constraint firstAttribute="height" constant="70" id="Z1k-67-YcU"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="empty"/>
                                 <connections>
                                     <action selector="applauseButtonTouchDown:" destination="7NG-7C-sLW" eventType="touchDown" id="9i0-wh-Zm7"/>
                                     <action selector="applauseButtonTouchUp:" destination="7NG-7C-sLW" eventType="touchUpOutside" id="e5D-2z-5mf"/>
@@ -134,7 +135,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ydA-WZ-Tv2" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="0o9-KX-cdH"/>
                             <constraint firstItem="hev-wJ-aPa" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="38Q-NI-M2f"/>
@@ -190,4 +191,7 @@
             <point key="canvasLocation" x="-154" y="48"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="empty" width="70" height="70"/>
+    </resources>
 </document>
