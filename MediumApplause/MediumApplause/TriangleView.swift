@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TriangleView : UIView {
+final class TriangleView : UIView {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -31,4 +31,14 @@ class TriangleView : UIView {
 		context.setFillColor(red: 1.0, green: 0.5, blue: 0.0, alpha: 0.60)
 		context.fillPath()
 	}
+}
+
+final class CircleView: UIView {
+	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		layer.cornerRadius = bounds.size.width / 2;
+		layer.masksToBounds = true;
+	}
+	
 }

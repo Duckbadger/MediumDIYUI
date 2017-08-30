@@ -18,13 +18,15 @@ final class ApplauseViewController: UIViewController {
 	@IBOutlet var applauseCounterLabel: UILabel!
 	
 	@IBOutlet var triangleViews: [UIView]!
+	@IBOutlet var circleViews: [CircleView]!
 	
 	// MARK: Private
 	// Animation
 	fileprivate let scheduler = ActionScheduler()
 	fileprivate var timer: Timer? = nil
-	fileprivate let timerDelta = 0.6
+	fileprivate let timerDelta = 0.65
 	fileprivate var animationCount = 0
+	fileprivate var fullAlpha = 0.9
 	
 	// Frames
 	fileprivate lazy var buttonInitialFrame: CGRect = {
@@ -34,7 +36,10 @@ final class ApplauseViewController: UIViewController {
 		return self.applauseCounterView.frame
 	}()
 	fileprivate lazy var applauseCounterViewVisibleFrame: CGRect = {
-		return self.applauseCounterViewInitialFrame.offsetBy(dx: 0, dy: -100)
+		return self.applauseCounterViewInitialFrame.offsetBy(dx: 0, dy: -80)
+	}()
+	fileprivate lazy var applauseCounterViewLeavingFrame: CGRect = {
+		return self.applauseCounterViewInitialFrame.offsetBy(dx: 0, dy: -130)
 	}()
 	
 	fileprivate var applauseAmount = 0
@@ -61,11 +66,13 @@ final class ApplauseViewController: UIViewController {
 	fileprivate func scheduleIncrement() {
 		animationCount = 0
 		animateIncrement()
+		timer?.invalidate()
 		timer = Timer.scheduledTimer(timeInterval: timerDelta, target: self, selector: #selector(animateIncrement), userInfo: nil, repeats: true)
 	}
 	
 	fileprivate func scheduleAnimationOut() {
-		
+		timer?.invalidate()
+		timer = Timer.scheduledTimer(timeInterval: timerDelta, target: self, selector: #selector(animateOut), userInfo: nil, repeats: false)
 	}
 	
 	@objc fileprivate func animateIncrement() {
@@ -77,7 +84,8 @@ final class ApplauseViewController: UIViewController {
 		let buttonGroup = applauseButtonAnimationActions
 		
 		// Animate applause amount view and increment
-		let counterActions = (applauseCounterView.layer.frame == applauseCounterViewInitialFrame) ? applauseCounterAnimationActionsInitial : applauseCounterAnimationActions
+		let startFresh = (applauseCounterView.layer.frame == applauseCounterViewInitialFrame || applauseCounterView.layer.frame.midY < applauseCounterViewVisibleFrame.midY)
+		let counterActions = startFresh ? applauseCounterAnimationActionsInitial : applauseCounterAnimationActions
 		
 		let sparkleAnimations = sparklesAnimationActions
 		
@@ -85,6 +93,11 @@ final class ApplauseViewController: UIViewController {
 		
 		scheduler.run(action: allActions)
 		animationCount += 1
+	}
+	
+	@objc fileprivate func animateOut() {
+		let animateLeavingAction = applauseCounterAnimationActionsLeaving
+		scheduler.run(action: animateLeavingAction)
 	}
 	
 	fileprivate var applauseButtonAnimationActions: FiniteTimeAction {
@@ -113,25 +126,68 @@ final class ApplauseViewController: UIViewController {
 	}
 	
 	fileprivate var applauseCounterAnimationActionsInitial: FiniteTimeAction {
-		let animationDuration = timerDelta * 0.45
+		let transposeDuration = timerDelta * 0.45
+		let fadeDuration = timerDelta * 0.35
 		
-		// Container view
 		let fromRect = applauseCounterViewInitialFrame
 		let toRect = applauseCounterViewVisibleFrame
+		applauseCounterView.layer.frame = fromRect
+		applauseCounterView.alpha = 0
+		applauseCounterLabel.layer.frame = fromRect
+		applauseCounterLabel.alpha = 0
 		let viewAction = InterpolationAction(from: fromRect,
 		                                     to: toRect,
-		                                     duration: animationDuration,
+		                                     duration: transposeDuration,
 		                                     easing: .backOut) { [unowned self] in
 												self.applauseCounterView.layer.frame = $0
 		}
 		let labelAction = InterpolationAction(from: fromRect,
 		                                      to: toRect,
-		                                      duration: animationDuration,
+		                                      duration: transposeDuration,
 		                                      easing: .backOut) { [unowned self] in
 												self.applauseCounterLabel.layer.frame = $0
 		}
+		let fadeAction = InterpolationAction(from: CGFloat(0),
+		                                     to: CGFloat(fullAlpha),
+		                                     duration: fadeDuration,
+		                                     easing: .linear,
+		                                     update: { [unowned self] in
+												self.applauseCounterView.alpha = $0
+												self.applauseCounterLabel.alpha = $0
+		})
 		
-		return ActionGroup(actions: [viewAction, labelAction])
+		return ActionGroup(actions: [viewAction, labelAction, fadeAction])
+	}
+	
+	fileprivate var applauseCounterAnimationActionsLeaving: FiniteTimeAction {
+		let transposeDuration = timerDelta * 0.8
+		let fadeDuration = timerDelta * 0.5
+		
+		let fromRect = applauseCounterViewVisibleFrame
+		let toRect = applauseCounterViewLeavingFrame
+		let viewAction = InterpolationAction(from: fromRect,
+		                                     to: toRect,
+		                                     duration: transposeDuration,
+		                                     easing: .backOut) { [unowned self] in
+												self.applauseCounterView.layer.frame = $0
+		}
+		let labelAction = InterpolationAction(from: fromRect,
+		                                      to: toRect,
+		                                      duration: transposeDuration,
+		                                      easing: .backOut) { [unowned self] in
+												self.applauseCounterLabel.layer.frame = $0
+		}
+		let fadeAction = InterpolationAction(from: CGFloat(fullAlpha),
+		                                     to: CGFloat(0),
+		                                     duration: fadeDuration,
+		                                     easing: .linear,
+		                                     update: { [unowned self] in
+												self.applauseCounterView.alpha = $0
+												self.applauseCounterLabel.alpha = $0
+		})
+		
+		return ActionGroup(actions: [viewAction, labelAction, fadeAction])
+
 	}
 	
 	fileprivate var applauseCounterAnimationActions: FiniteTimeAction {
@@ -185,9 +241,10 @@ final class ApplauseViewController: UIViewController {
 		return labelAction
 	}
 	
+	// ✨
 	fileprivate var sparklesAnimationActions: FiniteTimeAction {
 		let transposeDuration = timerDelta * 0.45
-		let fadeDuration = timerDelta * 0.4
+		let fadeDuration = timerDelta * 0.21
 		
 		let angleDelta = 360 / 5
 		let startAngle = Int(arc4random()) % angleDelta
@@ -197,35 +254,91 @@ final class ApplauseViewController: UIViewController {
 		let initialDistanceFromOrigin = (Double(applauseCounterViewVisibleFrame.size.width) / 2) + 5
 		let endDistanceFromOrigin = initialDistanceFromOrigin + distance
 		
+		var sparkleActions: [FiniteTimeAction] = []
+		let triangleActions = triangleAnimationActions(withAngle: startAngle, angleDelta: angleDelta, origin: origin, initialDistanceFromOrigin: initialDistanceFromOrigin, endDistanceFromOrigin: endDistanceFromOrigin, transposeDuration: transposeDuration, fadeDuration: fadeDuration)
+		sparkleActions.append(contentsOf: triangleActions)
 		
-		var triangleActions: [FiniteTimeAction] = []
+		let circleActions = circleAnimationActions(withAngle: startAngle, angleDelta: angleDelta, origin: origin, initialDistanceFromOrigin: initialDistanceFromOrigin, endDistanceFromOrigin: endDistanceFromOrigin, transposeDuration: transposeDuration, fadeDuration: fadeDuration)
+		sparkleActions.append(contentsOf: circleActions)
+		
+		return ActionGroup(actions: sparkleActions)
+	}
+	
+	fileprivate func triangleAnimationActions(withAngle startAngle: Int,
+	                                        angleDelta: Int,
+	                                        origin: CGPoint,
+	                                        initialDistanceFromOrigin: Double,
+	                                        endDistanceFromOrigin: Double,
+	                                        transposeDuration: Double,
+	                                        fadeDuration: Double) -> [FiniteTimeAction] {
+		var sparkleActions: [FiniteTimeAction] = []
+		
 		for (index, triangle) in triangleViews.enumerated() {
-			let triangleAngle = Double(startAngle + (angleDelta * index))
+			let angle = Double(startAngle + (angleDelta * index))
 			
-			triangle.layer.transform = CATransform3DMakeRotation(CGFloat(triangleAngle - 90.0) / 180.0 * CGFloat(Double.pi), 0, 0, 1)
+			triangle.layer.transform = CATransform3DMakeRotation(CGFloat(angle - 90.0) / 180.0 * CGFloat(Double.pi), 0, 0, 1)
 			
-			let startPoint = CGPoint(x: Double(origin.x) + initialDistanceFromOrigin * cos(triangleAngle / 180.0 * Double.pi),
-			                         y: Double(origin.y) + initialDistanceFromOrigin * sin(triangleAngle / 180.0 * Double.pi))
-			let endPoint = CGPoint(x: Double(origin.x) + endDistanceFromOrigin * cos(triangleAngle / 180.0 * Double.pi),
-			                       y: Double(origin.y) + endDistanceFromOrigin * sin(triangleAngle / 180.0 * Double.pi))
+			let startPoint = CGPoint(x: Double(origin.x) + initialDistanceFromOrigin * cos(angle / 180.0 * Double.pi),
+			                         y: Double(origin.y) + initialDistanceFromOrigin * sin(angle / 180.0 * Double.pi))
+			let endPoint = CGPoint(x: Double(origin.x) + endDistanceFromOrigin * cos(angle / 180.0 * Double.pi),
+			                       y: Double(origin.y) + endDistanceFromOrigin * sin(angle / 180.0 * Double.pi))
 			let transposeAction = InterpolationAction(from: startPoint,
-			                                 to: endPoint,
-			                                 duration: transposeDuration,
-			                                 easing: .sineOut) {
-												triangle.layer.position = $0
+			                                          to: endPoint,
+			                                          duration: transposeDuration,
+			                                          easing: .sineOut) {
+														triangle.layer.position = $0
 			}
-			let fadeAction = InterpolationAction(from: 0,
-			                                     to: 1,
+			let fadeAction = InterpolationAction(from: 0.0,
+			                                     to: Float(fullAlpha),
 			                                     duration: fadeDuration,
-			                                     easing: .linear,
+			                                     easing: .sineOut,
 			                                     update: {
 													triangle.layer.opacity = $0
 			}).yoyo()
 			let actionGroup = ActionGroup(actions: [transposeAction, fadeAction])
-			triangleActions.append(actionGroup)
+			sparkleActions.append(actionGroup)
 		}
 		
-		return ActionGroup(actions: triangleActions)
+		return sparkleActions
+	}
+	
+	fileprivate func circleAnimationActions(withAngle startAngle: Int,
+	                                        angleDelta: Int,
+	                                        origin: CGPoint,
+	                                        initialDistanceFromOrigin: Double,
+	                                        endDistanceFromOrigin: Double,
+	                                        transposeDuration: Double,
+	                                        fadeDuration: Double) -> [FiniteTimeAction] {
+		let circleTriangleRatio = 0.75
+		var sparkleActions: [FiniteTimeAction] = []
+		
+		for (index, circle) in circleViews.enumerated() {
+			let angle = Double(startAngle - 10 + (angleDelta * index))
+			
+			let startPoint = CGPoint(x: Double(origin.x) + (initialDistanceFromOrigin - 4) * cos(angle / 180.0 * Double.pi),
+			                         y: Double(origin.y) + (initialDistanceFromOrigin - 4) * sin(angle / 180.0 * Double.pi))
+			let endPoint = CGPoint(x: Double(origin.x) + (endDistanceFromOrigin * circleTriangleRatio) * cos(angle / 180.0 * Double.pi),
+			                       y: Double(origin.y) + (endDistanceFromOrigin * circleTriangleRatio) * sin(angle / 180.0 * Double.pi))
+			
+			let transposeAction = InterpolationAction(from: startPoint,
+			                                          to: endPoint,
+			                                          duration: transposeDuration,
+			                                          easing: .sineOut) {
+														circle.layer.position = $0
+			}
+			let fadeAction = InterpolationAction(from: 0.0,
+			                                     to: Float(fullAlpha),
+			                                     duration: fadeDuration,
+			                                     easing: .sineOut,
+			                                     update: {
+													circle.layer.opacity = $0
+			}).yoyo()
+			
+			let actionGroup = ActionGroup(actions: [transposeAction, fadeAction])
+			sparkleActions.append(actionGroup)
+		}
+		
+		return sparkleActions
 	}
 	
 	// MARK: Actions
@@ -235,7 +348,6 @@ final class ApplauseViewController: UIViewController {
 	}
 
 	@IBAction func applauseButtonTouchUp(_ sender: Any) {
-		timer?.invalidate()
 		scheduleAnimationOut()
 	}
 }

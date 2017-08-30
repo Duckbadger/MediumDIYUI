@@ -79,6 +79,46 @@
                                     <constraint firstAttribute="width" constant="8" id="vEP-gv-BHO"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pw4-lz-uVb" customClass="CircleView" customModule="MediumApplause" customModuleProvider="target">
+                                <rect key="frame" x="33" y="33" width="4" height="4"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.70588235294117641" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="23m-NX-ESj"/>
+                                    <constraint firstAttribute="width" constant="4" id="UVJ-t4-CgT"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emS-00-KEF" customClass="CircleView" customModule="MediumApplause" customModuleProvider="target">
+                                <rect key="frame" x="33" y="33" width="4" height="4"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.70588235294117641" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="WLZ-D8-Vk5"/>
+                                    <constraint firstAttribute="width" constant="4" id="k8R-3z-F2F"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4II-NL-KxG" customClass="CircleView" customModule="MediumApplause" customModuleProvider="target">
+                                <rect key="frame" x="33" y="33" width="4" height="4"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.70588235294117641" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="rak-eq-Tva"/>
+                                    <constraint firstAttribute="height" constant="4" id="zc0-Ad-DCr"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7f9-cb-bMu" customClass="CircleView" customModule="MediumApplause" customModuleProvider="target">
+                                <rect key="frame" x="33" y="33" width="4" height="4"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.70588235294117641" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="AbN-89-gUT"/>
+                                    <constraint firstAttribute="height" constant="4" id="C65-0z-wuI"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hev-wJ-aPa" customClass="CircleView" customModule="MediumApplause" customModuleProvider="target">
+                                <rect key="frame" x="33" y="33" width="4" height="4"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.70588235294117641" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="Vg3-iA-mLG"/>
+                                    <constraint firstAttribute="height" constant="4" id="q2g-v9-low"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydA-WZ-Tv2">
                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                 <color key="backgroundColor" red="0.74509803919999995" green="0.56078431370000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,19 +137,29 @@
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ydA-WZ-Tv2" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="0o9-KX-cdH"/>
+                            <constraint firstItem="hev-wJ-aPa" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="38Q-NI-M2f"/>
                             <constraint firstItem="r0Q-Hc-RXU" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="4H7-PS-Bcj"/>
                             <constraint firstItem="yxc-La-iVn" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="5tD-EN-j6G"/>
                             <constraint firstItem="ydA-WZ-Tv2" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="7Ae-oh-uWx"/>
+                            <constraint firstItem="hev-wJ-aPa" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="BMt-8X-1Bu"/>
+                            <constraint firstItem="emS-00-KEF" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="Fly-Sc-Nyb"/>
+                            <constraint firstItem="7f9-cb-bMu" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="LTi-KO-qAa"/>
                             <constraint firstItem="BKp-D7-MoJ" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="LgT-9P-RLC"/>
                             <constraint firstItem="BKp-D7-MoJ" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="Lxh-13-xXz"/>
                             <constraint firstItem="l3j-7w-Cj4" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="RHM-Xg-gMz"/>
+                            <constraint firstItem="7f9-cb-bMu" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="X4I-Lo-nJT"/>
                             <constraint firstItem="YGk-Ku-mkN" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="bTO-RZ-nnZ"/>
                             <constraint firstItem="r0Q-Hc-RXU" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="bbT-9b-fuC"/>
                             <constraint firstItem="MjY-pG-NGX" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="bfX-Bx-ajE"/>
                             <constraint firstItem="BS1-wE-jwI" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="dg2-OL-WlW"/>
+                            <constraint firstItem="pw4-lz-uVb" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="g6W-Bq-5dx"/>
+                            <constraint firstItem="4II-NL-KxG" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="hja-5U-ErF"/>
+                            <constraint firstItem="emS-00-KEF" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="hmW-7G-SJA"/>
                             <constraint firstItem="BS1-wE-jwI" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="kUE-cw-XLQ"/>
                             <constraint firstItem="MjY-pG-NGX" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="lfN-X3-pBq"/>
                             <constraint firstItem="l3j-7w-Cj4" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="mj6-dE-W9b"/>
+                            <constraint firstItem="pw4-lz-uVb" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="mzd-bg-AIh"/>
+                            <constraint firstItem="4II-NL-KxG" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="ssr-sF-sjA"/>
                             <constraint firstItem="yxc-La-iVn" firstAttribute="centerY" secondItem="9Xj-kd-jFZ" secondAttribute="centerY" id="wDa-JC-O3c"/>
                             <constraint firstItem="YGk-Ku-mkN" firstAttribute="centerX" secondItem="9Xj-kd-jFZ" secondAttribute="centerX" id="yWD-1o-X5L"/>
                         </constraints>
@@ -128,6 +178,11 @@
                         <outletCollection property="triangleViews" destination="l3j-7w-Cj4" collectionClass="NSMutableArray" id="kSf-23-P88"/>
                         <outletCollection property="triangleViews" destination="yxc-La-iVn" collectionClass="NSMutableArray" id="9Gg-ia-CU3"/>
                         <outletCollection property="triangleViews" destination="BS1-wE-jwI" collectionClass="NSMutableArray" id="rfi-D5-A6I"/>
+                        <outletCollection property="circleViews" destination="pw4-lz-uVb" collectionClass="NSMutableArray" id="8sV-Ra-FzI"/>
+                        <outletCollection property="circleViews" destination="emS-00-KEF" collectionClass="NSMutableArray" id="gkI-ru-bq9"/>
+                        <outletCollection property="circleViews" destination="4II-NL-KxG" collectionClass="NSMutableArray" id="pnx-cc-C2E"/>
+                        <outletCollection property="circleViews" destination="7f9-cb-bMu" collectionClass="NSMutableArray" id="bI7-bp-BU4"/>
+                        <outletCollection property="circleViews" destination="hev-wJ-aPa" collectionClass="NSMutableArray" id="LHZ-1C-bwl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZv-K5-Xsx" userLabel="First Responder" sceneMemberID="firstResponder"/>
