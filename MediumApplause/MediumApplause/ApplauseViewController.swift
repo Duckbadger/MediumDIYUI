@@ -69,8 +69,6 @@ final class ApplauseViewController: UIViewController {
 	}
 	
 	@objc fileprivate func animateIncrement() {
-		print("animate")
-		
 		// Label
 		applauseAmount += 1
 		applauseCounterLabel.text = "+\(applauseAmount)"
@@ -90,7 +88,7 @@ final class ApplauseViewController: UIViewController {
 	}
 	
 	fileprivate var applauseButtonAnimationActions: FiniteTimeAction {
-		let animationDuration = timerDelta * 0.5
+		let animationDuration = timerDelta * 0.45
 		
 		let fromRect = buttonInitialFrame
 		let delta = CGFloat(-4)
@@ -115,7 +113,7 @@ final class ApplauseViewController: UIViewController {
 	}
 	
 	fileprivate var applauseCounterAnimationActionsInitial: FiniteTimeAction {
-		let animationDuration = timerDelta * 0.5
+		let animationDuration = timerDelta * 0.45
 		
 		// Container view
 		let fromRect = applauseCounterViewInitialFrame
@@ -137,7 +135,7 @@ final class ApplauseViewController: UIViewController {
 	}
 	
 	fileprivate var applauseCounterAnimationActions: FiniteTimeAction {
-		let animationDuration = timerDelta * 0.5
+		let animationDuration = timerDelta * 0.45
 		
 		// Container view
 		let fromRect = applauseCounterViewVisibleFrame
@@ -188,7 +186,8 @@ final class ApplauseViewController: UIViewController {
 	}
 	
 	fileprivate var sparklesAnimationActions: FiniteTimeAction {
-		let animationDuration = timerDelta * 0.4
+		let transposeDuration = timerDelta * 0.45
+		let fadeDuration = timerDelta * 0.4
 		
 		let angleDelta = 360 / 5
 		let startAngle = Int(arc4random()) % angleDelta
@@ -201,18 +200,29 @@ final class ApplauseViewController: UIViewController {
 		
 		var triangleActions: [FiniteTimeAction] = []
 		for (index, triangle) in triangleViews.enumerated() {
-			let angle = Double(startAngle + (angleDelta * index))
-			let startPoint = CGPoint(x: Double(origin.x) + initialDistanceFromOrigin * cos(angle / 180.0 * Double.pi),
-			                         y: Double(origin.y) + initialDistanceFromOrigin * sin(angle / 180.0 * Double.pi))
-			let endPoint = CGPoint(x: Double(origin.x) + endDistanceFromOrigin * cos(angle / 180.0 * Double.pi),
-			                       y: Double(origin.y) + endDistanceFromOrigin * sin(angle / 180.0 * Double.pi))
-			let action = InterpolationAction(from: startPoint,
+			let triangleAngle = Double(startAngle + (angleDelta * index))
+			
+			triangle.layer.transform = CATransform3DMakeRotation(CGFloat(triangleAngle - 90.0) / 180.0 * CGFloat(Double.pi), 0, 0, 1)
+			
+			let startPoint = CGPoint(x: Double(origin.x) + initialDistanceFromOrigin * cos(triangleAngle / 180.0 * Double.pi),
+			                         y: Double(origin.y) + initialDistanceFromOrigin * sin(triangleAngle / 180.0 * Double.pi))
+			let endPoint = CGPoint(x: Double(origin.x) + endDistanceFromOrigin * cos(triangleAngle / 180.0 * Double.pi),
+			                       y: Double(origin.y) + endDistanceFromOrigin * sin(triangleAngle / 180.0 * Double.pi))
+			let transposeAction = InterpolationAction(from: startPoint,
 			                                 to: endPoint,
-			                                 duration: animationDuration,
+			                                 duration: transposeDuration,
 			                                 easing: .sineOut) {
 												triangle.layer.position = $0
 			}
-			triangleActions.append(action)
+			let fadeAction = InterpolationAction(from: 0,
+			                                     to: 1,
+			                                     duration: fadeDuration,
+			                                     easing: .linear,
+			                                     update: {
+													triangle.layer.opacity = $0
+			}).yoyo()
+			let actionGroup = ActionGroup(actions: [transposeAction, fadeAction])
+			triangleActions.append(actionGroup)
 		}
 		
 		return ActionGroup(actions: triangleActions)

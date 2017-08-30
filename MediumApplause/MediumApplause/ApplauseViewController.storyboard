@@ -40,43 +40,43 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0Q-Hc-RXU" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
-                                <rect key="frame" x="30" y="30" width="10" height="10"/>
+                                <rect key="frame" x="31" y="30" width="8" height="10"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="10" id="Jf5-ap-Oto"/>
+                                    <constraint firstAttribute="width" constant="8" id="Jf5-ap-Oto"/>
                                     <constraint firstAttribute="height" constant="10" id="Lfw-4U-JdX"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGk-Ku-mkN" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
-                                <rect key="frame" x="30" y="30" width="10" height="10"/>
+                                <rect key="frame" x="31" y="30" width="8" height="10"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="52r-Sa-XLg"/>
-                                    <constraint firstAttribute="width" constant="10" id="RAS-eC-gWV"/>
+                                    <constraint firstAttribute="width" constant="8" id="RAS-eC-gWV"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3j-7w-Cj4" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
-                                <rect key="frame" x="30" y="30" width="10" height="10"/>
+                                <rect key="frame" x="31" y="30" width="8" height="10"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="jlR-ro-2nS"/>
-                                    <constraint firstAttribute="width" constant="10" id="stL-ZY-u9i"/>
+                                    <constraint firstAttribute="width" constant="8" id="stL-ZY-u9i"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxc-La-iVn" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
-                                <rect key="frame" x="30" y="30" width="10" height="10"/>
+                                <rect key="frame" x="31" y="30" width="8" height="10"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="10" id="6XX-HG-7Gu"/>
+                                    <constraint firstAttribute="width" constant="8" id="6XX-HG-7Gu"/>
                                     <constraint firstAttribute="height" constant="10" id="w1O-wF-LXE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BS1-wE-jwI" customClass="TriangleView" customModule="MediumApplause" customModuleProvider="target">
-                                <rect key="frame" x="30" y="30" width="10" height="10"/>
+                                <rect key="frame" x="31" y="30" width="8" height="10"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="ccJ-V3-iSE"/>
-                                    <constraint firstAttribute="width" constant="10" id="vEP-gv-BHO"/>
+                                    <constraint firstAttribute="width" constant="8" id="vEP-gv-BHO"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydA-WZ-Tv2">
