@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2B99E36FDA468747B481728F /* Pods_MediumApplause.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586665D9096AFAC7E9CB6D14 /* Pods_MediumApplause.framework */; };
-		6814D2811F583510006E5A77 /* ApplauseViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6814D2801F583510006E5A77 /* ApplauseViewController+Animations.swift */; };
 		BE5192D51F54632300203A64 /* UIView+NibLoadingConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5192D41F54632300203A64 /* UIView+NibLoadingConfigurableView.swift */; };
 		BEAAF1DA1F53545800F1E0B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAAF1D91F53545800F1E0B9 /* AppDelegate.swift */; };
 		BEAAF1DC1F53545800F1E0B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAAF1DB1F53545800F1E0B9 /* ViewController.swift */; };
@@ -24,7 +23,6 @@
 /* Begin PBXFileReference section */
 		16090E35127D5035FF6C5084 /* Pods-MediumApplause.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediumApplause.release.xcconfig"; path = "Pods/Target Support Files/Pods-MediumApplause/Pods-MediumApplause.release.xcconfig"; sourceTree = "<group>"; };
 		586665D9096AFAC7E9CB6D14 /* Pods_MediumApplause.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MediumApplause.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6814D2801F583510006E5A77 /* ApplauseViewController+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApplauseViewController+Animations.swift"; sourceTree = "<group>"; };
 		B2FCA90B6E5ED87FAFB43F2F /* Pods-MediumApplause.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediumApplause.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MediumApplause/Pods-MediumApplause.debug.xcconfig"; sourceTree = "<group>"; };
 		BE5192D41F54632300203A64 /* UIView+NibLoadingConfigurableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadingConfigurableView.swift"; sourceTree = "<group>"; };
 		BEAAF1D61F53545800F1E0B9 /* MediumApplause.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediumApplause.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +88,6 @@
 				BE5192D41F54632300203A64 /* UIView+NibLoadingConfigurableView.swift */,
 				BEF99E751F546EC500E75488 /* ApplauseViewController.storyboard */,
 				BEF99E771F546F2600E75488 /* ApplauseViewController.swift */,
-				6814D2801F583510006E5A77 /* ApplauseViewController+Animations.swift */,
 				BEEA01C51F5610EA002BEA76 /* String+Tweenable.swift */,
 				BEEA01C71F562923002BEA76 /* TriangleView.swift */,
 			);
@@ -232,7 +229,6 @@
 			files = (
 				BEAAF1DC1F53545800F1E0B9 /* ViewController.swift in Sources */,
 				BEEA01C61F5610EA002BEA76 /* String+Tweenable.swift in Sources */,
-				6814D2811F583510006E5A77 /* ApplauseViewController+Animations.swift in Sources */,
 				BEF99E781F546F2600E75488 /* ApplauseViewController.swift in Sources */,
 				BE5192D51F54632300203A64 /* UIView+NibLoadingConfigurableView.swift in Sources */,
 				BEEA01C81F562923002BEA76 /* TriangleView.swift in Sources */,
