@@ -35,6 +35,14 @@
                                     <segue destination="pdR-3C-Nhm" kind="embed" id="jUG-AY-1cD"/>
                                 </connections>
                             </containerView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.65000000000000002" minValue="0.65000000000000002" maxValue="5" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dn0-IK-jo4">
+                                <rect key="frame" x="128" y="27" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.31372549020000001" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="g5F-v5-hX0"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

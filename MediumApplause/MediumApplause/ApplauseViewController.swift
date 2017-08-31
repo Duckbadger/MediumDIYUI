@@ -25,9 +25,9 @@ final class ApplauseViewController: UIViewController {
 	fileprivate let buttonColor = UIColor(red: 0.31, green: 0.46, blue: 0.46, alpha: 1.0)
 	
 	// Animation
+  var timerDelta = 0.65
 	fileprivate let scheduler = ActionScheduler()
 	fileprivate var timer: Timer? = nil
-	fileprivate let timerDelta = 0.65
 	fileprivate var fullAlpha = 0.95
 	
 	// Frames
@@ -95,7 +95,7 @@ extension ApplauseViewController {
   
   fileprivate func scheduleAnimationOut() {
     timer?.invalidate()
-    timer = Timer.scheduledTimer(timeInterval: 0.9, target: self, selector: #selector(animateOut), userInfo: nil, repeats: false)
+    timer = Timer.scheduledTimer(timeInterval: timerDelta * 1.5, target: self, selector: #selector(animateOut), userInfo: nil, repeats: false)
   }
   
   @objc fileprivate func animateIncrement() {
