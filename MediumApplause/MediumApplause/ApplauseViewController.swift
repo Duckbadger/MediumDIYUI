@@ -29,7 +29,7 @@ final class ApplauseViewController: UIViewController {
 	fileprivate var timer: Timer? = nil
 	fileprivate let timerDelta = 0.65
 	fileprivate var animationCount = 0
-	fileprivate var fullAlpha = 0.9
+	fileprivate var fullAlpha = 0.95
 	
 	// Frames
 	fileprivate lazy var buttonInitialFrame: CGRect = {
@@ -39,10 +39,10 @@ final class ApplauseViewController: UIViewController {
 		return self.applauseCounterView.frame
 	}()
 	fileprivate lazy var applauseCounterViewVisibleFrame: CGRect = {
-		return self.applauseCounterViewInitialFrame.offsetBy(dx: 0, dy: -80)
+		return self.applauseCounterViewInitialFrame.offsetBy(dx: 0, dy: -100)
 	}()
 	fileprivate lazy var applauseCounterViewLeavingFrame: CGRect = {
-		return self.applauseCounterViewInitialFrame.offsetBy(dx: 0, dy: -130)
+		return self.applauseCounterViewInitialFrame.offsetBy(dx: 0, dy: -150)
 	}()
 	
 	fileprivate var applauseAmount = 0

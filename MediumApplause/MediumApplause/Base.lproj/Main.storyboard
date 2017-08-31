@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,13 +25,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mockbackground" translatesAutoresizingMaskIntoConstraints="NO" id="5UJ-U0-vh0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jot-GX-qKc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <color key="backgroundColor" red="0.80392156862745101" green="0.13725490196078433" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="BNj-FI-yHb"/>
-                                </constraints>
-                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkW-qV-QHx">
                                 <rect key="frame" x="289" y="577" width="70" height="70"/>
                                 <constraints>
@@ -47,17 +40,14 @@
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="bkW-qV-QHx" secondAttribute="bottom" constant="20" id="CFU-Zp-8ZO"/>
                             <constraint firstItem="5UJ-U0-vh0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CZS-xd-1H4"/>
-                            <constraint firstItem="jot-GX-qKc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="WXH-JG-41x"/>
                             <constraint firstAttribute="trailing" secondItem="bkW-qV-QHx" secondAttribute="trailing" constant="16" id="YSV-TE-DiF"/>
                             <constraint firstAttribute="topMargin" secondItem="5UJ-U0-vh0" secondAttribute="top" id="Zbg-7M-EZv"/>
                             <constraint firstAttribute="bottomMargin" secondItem="5UJ-U0-vh0" secondAttribute="bottom" id="jsp-P7-O19"/>
-                            <constraint firstAttribute="trailing" secondItem="jot-GX-qKc" secondAttribute="trailing" id="sRn-xO-x4K"/>
                             <constraint firstAttribute="trailing" secondItem="5UJ-U0-vh0" secondAttribute="trailing" id="tu4-Dv-0Ug"/>
-                            <constraint firstItem="jot-GX-qKc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xzh-02-A44"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qpV-pf-rRn"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

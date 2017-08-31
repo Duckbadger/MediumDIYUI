@@ -13,6 +13,10 @@ final class ViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
   }
+  
+  override var prefersStatusBarHidden: Bool {
+    return true
+  }
 
 }
 
